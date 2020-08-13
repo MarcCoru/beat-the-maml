@@ -1,0 +1,11 @@
+flask
+matplotlib
+tqdm
+torch
+torchmeta
+scikit-learn
+numpy
+pandas
+h5py
+rasterio
+scikit-image

@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script>
+    shots = 2
+    ways = 4
+    num_tasks = 1000
+    </script>
+
+    <script type=text/javascript>
+      $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+
+      function uuidv4() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+          var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+          return v.toString(16);
+        });
+      }
+      var uuid = uuidv4()
+      var counter = 0
+
+    </script>
+
+      <script>
+      function allowDrop(ev) {
+        ev.preventDefault();
+      }
+
+      function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+      }
+
+      function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+      }
+      </script>
+
+      <style>
+       #draggable { padding: 20px;
+         background-color: #008CBA80;
+         z-index:50; margin: 20px}
+
+       .droppable { padding: 5px; margin: 5px}
+
+       img {
+         width:128px;
+         margin-left: 2px;
+       }
+
+       .overlay {
+         position: absolute;
+         z-index:100;
+         top: 0;
+         bottom: 0;
+         left: 0;
+         right: 0;
+         height: 100%;
+         width: 100%;
+         opacity: 0;
+         transition: .5s ease;
+         background-color: #008CBA00;
+       }
+
+       .text {
+         color: white;
+         font-size: 20px;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         -webkit-transform: translate(-50%, -50%);
+         -ms-transform: translate(-50%, -50%);
+         transform: translate(-50%, -50%);
+         text-align: center;
+       }
+
+       .progress {
+
+       }
+
+       .box{
+          box-model: border-box;
+          border: 3px solid transparent;
+          background-clip:padding-box;
+        }
+
+       .overlay:hover  {
+          /*opacity: .5;*/
+          background-color: #008CBA80;
+          opacity: 1;
+        }
+
+
+       </style>
+
+
+
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Sen12MS Human Few-Shot Classifier</h1>
+        <p>Below are RGB images from different regions on the Earth. Drag and drop the sample image in the top row to the most similar category in the bottom row.</p>
+
+        <div class="progress">
+          <div id="dynamic" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+
+
+
+
+<div class="container">
+
+  <div id="queryrow" class="row">
+    <!--
+    <div id="draggable" class="ui-widget-content mx-auto rounded border">
+      <p>Sample</p>
+      <img src="http://lorempixel.com/100/100/city"/>
+    </div>
+  -->
+  </div>
+  <div id="supportrow" class="row">
+    <!--
+    <div id="droppable1" class="ui-widget-header droppable col-sm rounded border">
+      <p>Class 1</p>
+      <div class="overlaycontainer">
+        <img src="http://lorempixel.com/100/100/city" alt="alt text"/>
+        <img src="http://lorempixel.com/100/100/city" alt="alt text"/>
+      </div>
+      <div class="overlay">
+        <div class="text">Drop Here</div>
+      </div>
+    </div>
+
+    <div id="droppable2" class="ui-widget-header droppable col-sm rounded border">
+      <p>Class 2</p>
+      <div class="overlaycontainer">
+        <img src="http://lorempixel.com/100/100/city" alt="alt text"/>
+        <img src="http://lorempixel.com/100/100/city" alt="alt text"/>
+      </div>
+      <div class="overlay">
+        <div class="text">Drop Here</div>
+      </div>
+    </div>
+
+    <div id="droppable3" class="ui-widget-header droppable col-sm rounded border">
+      <p>Class 3</p>
+      <div class="overlaycontainer">
+        <img src="{{url_for('static', filename='/img/0/train/0-0.png')}}" alt="alt text"/>
+        <img src="http://lorempixel.com/100/100/city" alt="alt text"/>
+      </div>
+      <div class="overlay">
+        <div class="text">Drop Here</div>
+      </div>
+    </div>
+
+    <div id="droppable4" class="ui-widget-header droppable col-sm rounded border">
+      <p>Class 4</p>
+      <div class="overlaycontainer">
+        <img src="http://lorempixel.com/100/100/city" alt="alt text"/>
+        <img src="http://lorempixel.com/100/100/city" alt="alt text"/>
+      </div>
+      <div class="overlay">
+        <div class="text">Drop Here</div>
+      </div>
+    </div>
+  -->
+  </div>
+
+
+
+</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+-->
+
+
+  <script>
+  function add_sample_box(url){
+    var box = document.createElement("div");
+    box.id = "draggable"
+    box.className = "ui-widget-content mx-auto rounded border"
+
+    var p = document.createElement("p");
+    p.innerHTML = "Drag this image"
+
+    var img = document.createElement("img");
+    img.src = url
+
+    box.appendChild(p)
+    box.appendChild(img)
+
+    var queryrow = document.getElementById("queryrow");
+    queryrow.appendChild(box)
+  }
+
+  function removeAllChildNodes(parent) {
+      while (parent.firstChild) {
+          parent.removeChild(parent.firstChild);
+      }
+  }
+
+  function clear() {
+    var supportrow = document.getElementById("supportrow");
+    removeAllChildNodes(supportrow)
+    var queryrow = document.getElementById("queryrow");
+    removeAllChildNodes(queryrow)
+  }
+
+  function add_support_box(classid, urls){
+    /*
+    urls = [
+      'http://lorempixel.com/100/100/city',
+      'http://lorempixel.com/100/100/city'
+    ]
+    */
+
+    var box = document.createElement("div");
+    box.id = "droppable" + classid
+    box.className = "ui-widget-header droppable col-sm rounded border"
+    box.classid = classid
+
+    var p = document.createElement("p");
+    p.innerHTML = "Category "+classid
+
+    var imdiv = document.createElement("div");
+    imdiv.className="overlaycontainer"
+
+    urls.forEach((item, i) => {
+      var img = document.createElement("img");
+      img.src = item
+      imdiv.appendChild(img)
+    });
+
+
+    var overlay = document.createElement("div");
+    overlay.className="overlay"
+
+    var text = document.createElement("div");
+    text.className="text"
+    text.innerHTML = "Drop here"
+
+    overlay.appendChild(text)
+
+    box.appendChild(p)
+    box.appendChild(imdiv)
+    box.appendChild(overlay)
+
+    var supportrow = document.getElementById("supportrow");
+    supportrow.appendChild(box)
+  }
+
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
+
+  function initboxes() {
+    taskid=getRandomInt(num_tasks)
+
+    testclass = getRandomInt(ways)
+    testshot = getRandomInt(shots)
+
+    var static_url = '{{url_for("static", filename="")}}'
+    add_sample_box(static_url + "/img/"+taskid+"/test/"+testclass+"-"+testshot+".png")//'{{url_for("static", filename="/img/'+0+'/test/0-0.png")}}'.replace("%2527%252B",""))
+
+    for (let classid=0; classid<ways; classid++) {
+      var urls = [];
+      for (let shot=0; shot<shots; shot++) {
+        var static_url = '{{url_for("static", filename="")}}'
+        var url = static_url+"/img/"+taskid+"/train/"+classid+"-"+shot+".png"
+        urls.push(url)
+      }
+      add_support_box(classid, urls)
+    }
+
+  }
+
+  function add_dropping_functionality(){
+
+  /* Draggable Functionality */
+    function dropped( event, ui ) {
+      $( this )
+        .addClass( "ui-state-highlight" )
+        .find( "p" )
+          .html( "Dropped!" );
+
+      data = {
+        true_class: testclass,
+        selected_class: event.target.classid,
+        uuid: uuid,
+        taskid: taskid,
+        counter: counter
+      }
+
+      console.log(data)
+      counter += 1
+
+      $("#dynamic")
+      .css("width", counter + "%")
+      .attr("aria-valuenow", counter);
+      if (counter >= 100)
+          clearInterval(interval);
+
+      $.post( "/dropevent", {
+        data: JSON.stringify(data)
+      })
+
+      /*
+      if ( event.target.classid == testclass ){
+          alert("correct")
+        }
+      else{
+          alert("wrong")
+      }
+      */
+
+      clear()
+      initboxes()
+      add_dropping_functionality()
+
+    };
+
+    $( function() {
+      $( "#draggable" ).draggable();
+
+      $( "#droppable0" ).droppable({drop: dropped});
+      $( "#droppable1" ).droppable({drop: dropped});
+      $( "#droppable2" ).droppable({drop: dropped});
+      $( "#droppable3" ).droppable({drop: dropped});
+    } );
+  }
+
+  clear()
+  initboxes()
+  add_dropping_functionality()
+
+  </script>
+
+
+  </body>
+</html>
