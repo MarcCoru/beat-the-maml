@@ -1,7 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect, jsonify
 
-app = Flask(__name__)
-
 import io
 import random
 from flask import Response
@@ -14,6 +12,13 @@ import matplotlib.pyplot as plt
 import shutil
 from datetime import datetime
 import json
+from waitress import serve
+#from flask_cors import CORS, cross_origin
+
+
+app = Flask(__name__)
+app.config['CORS_HEADERS'] = 'Content-Type'
+#cors = CORS(app, resources={r"/predict_petal_length": {"origins": "*"}})
 
 JSON_RECORDS_FILE = "app/static/records.json"
 
@@ -96,6 +101,7 @@ def post_javascript_data():
     jsdata = request.form['data']
     data = json.loads(jsdata)
     data["timestamp"] = datetime.now().isoformat()
+    data["ip"] = request.environ['REMOTE_ADDR']
     print(data)
     append_record(data)
     #x = mongocollection.insert_one(data)
@@ -116,3 +122,7 @@ def create_figure():
     ys = [random.randint(1, 50) for x in xs]
     axis.plot(xs, ys)
     return fig
+
+if __name__ == "__main__":
+   #app.run() ##Replaced with below code to run it using waitress
+   serve(app, host='0.0.0.0', port=80)

@@ -16,9 +16,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <script>
-    shots = 2
-    ways = 4
-    num_tasks = 1000
+    var shots = 2
+    var ways = 4
+    var num_tasks = 1000
+
+    var timestart = Date.now();
+    var timeend;
+    var progressbarmax = 20
     </script>
 
     <script type=text/javascript>
@@ -32,6 +36,7 @@
       }
       var uuid = uuidv4()
       var counter = 0
+
 
     </script>
 
@@ -116,8 +121,12 @@
     <div class="container">
       <div class="jumbotron">
         <h1>Sen12MS Human Few-Shot Classifier</h1>
-        <p>Below are RGB images from different regions on the Earth. Drag and drop the sample image in the top row to the most similar category in the bottom row.</p>
-
+        <p>Below are RGB images from different regions on the Earth. </p>
+        <h6>Instructions</h6>
+        <ul>
+        <li>Drag and drop the sample image in the top row</li>
+        <li>to the most similar category in the bottom row</li>
+        </ul>
         <div class="progress">
           <div id="dynamic" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
           </div>
@@ -287,6 +296,8 @@
     testclass = getRandomInt(ways)
     testshot = getRandomInt(shots)
 
+    $("#dynamic").attr("aria-valuemax",progressbarmax)
+
     var static_url = '{{url_for("static", filename="")}}'
     add_sample_box(static_url + "/img/"+taskid+"/test/"+testclass+"-"+testshot+".png")//'{{url_for("static", filename="/img/'+0+'/test/0-0.png")}}'.replace("%2527%252B",""))
 
@@ -316,17 +327,18 @@
         selected_class: event.target.classid,
         uuid: uuid,
         taskid: taskid,
-        counter: counter
+        counter: counter,
+        duration: (Date.now() - timestart) * 0.001
       }
+
+      timestart = Date.now()
 
       console.log(data)
       counter += 1
 
       $("#dynamic")
-      .css("width", counter + "%")
+      .css("width", ((counter % progressbarmax) * 1/progressbarmax) * 100 + "%")
       .attr("aria-valuenow", counter);
-      if (counter >= 100)
-          clearInterval(interval);
 
       $.post( "/dropevent", {
         data: JSON.stringify(data)
