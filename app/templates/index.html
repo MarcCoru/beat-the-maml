@@ -274,7 +274,7 @@
 
     var text = document.createElement("div");
     text.className="text"
-    text.innerHTML = "Drop here"
+    text.innerHTML = "click or drop"
 
     overlay.appendChild(text)
 
@@ -316,7 +316,7 @@
   function add_dropping_functionality(){
 
   /* Draggable Functionality */
-    function dropped( event, ui ) {
+    function record( event, ui ) {
       $( this )
         .addClass( "ui-state-highlight" )
         .find( "p" )
@@ -362,10 +362,16 @@
     $( function() {
       $( "#draggable" ).draggable();
 
-      $( "#droppable0" ).droppable({drop: dropped});
-      $( "#droppable1" ).droppable({drop: dropped});
-      $( "#droppable2" ).droppable({drop: dropped});
-      $( "#droppable3" ).droppable({drop: dropped});
+      $( "#droppable0" ).droppable({drop: record});
+      $( "#droppable1" ).droppable({drop: record});
+      $( "#droppable2" ).droppable({drop: record});
+      $( "#droppable3" ).droppable({drop: record});
+
+      $( "#droppable0" ).click(record);
+      $( "#droppable1" ).click(record);
+      $( "#droppable2" ).click(record);
+      $( "#droppable3" ).click(record);
+
     } );
   }
 
