@@ -7,13 +7,24 @@
 
     <!-- Bootstrap CSS
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
--->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+-->
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery-3.1.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery-ui.js') }}"></script>
+<script src="{{ url_for('static', filename='js/popper.min.js') }}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}"></link>
+
 
     <script>
     var shots = 2
@@ -23,24 +34,18 @@
     var timestart = Date.now();
     var timeend;
     var progressbarmax = 20
-    </script>
 
-    <script type=text/javascript>
-      $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 
-      function uuidv4() {
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-          var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-          return v.toString(16);
-        });
-      }
-      var uuid = uuidv4()
-      var counter = 0
+    function uuidv4() {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    }
+    var uuid = uuidv4()
+    var counter = 0
 
-
-    </script>
-
-      <script>
       function allowDrop(ev) {
         ev.preventDefault();
       }
@@ -55,65 +60,6 @@
         ev.target.appendChild(document.getElementById(data));
       }
       </script>
-
-      <style>
-       #draggable { padding: 20px;
-         background-color: #008CBA80;
-         z-index:50; margin: 20px}
-
-       .droppable { padding: 5px; margin: 5px}
-
-       img {
-         width:128px;
-         margin-left: 2px;
-       }
-
-       .overlay {
-         position: absolute;
-         z-index:100;
-         top: 0;
-         bottom: 0;
-         left: 0;
-         right: 0;
-         height: 100%;
-         width: 100%;
-         opacity: 0;
-         transition: .5s ease;
-         background-color: #008CBA00;
-       }
-
-       .text {
-         color: white;
-         font-size: 20px;
-         position: absolute;
-         top: 50%;
-         left: 50%;
-         -webkit-transform: translate(-50%, -50%);
-         -ms-transform: translate(-50%, -50%);
-         transform: translate(-50%, -50%);
-         text-align: center;
-       }
-
-       .progress {
-
-       }
-
-       .box{
-          box-model: border-box;
-          border: 3px solid transparent;
-          background-clip:padding-box;
-        }
-
-       .overlay:hover  {
-          /*opacity: .5;*/
-          background-color: #008CBA80;
-          opacity: 1;
-        }
-
-
-       </style>
-
-
 
   </head>
   <body>
@@ -144,72 +90,13 @@
 <div class="container">
 
   <div id="queryrow" class="row">
-    <!--
-    <div id="draggable" class="ui-widget-content mx-auto rounded border">
-      <p>Sample</p>
-      <img src="http://lorempixel.com/100/100/city"/>
-    </div>
-  -->
   </div>
   <div id="supportrow" class="row">
-    <!--
-    <div id="droppable1" class="ui-widget-header droppable col-sm rounded border">
-      <p>Class 1</p>
-      <div class="overlaycontainer">
-        <img src="http://lorempixel.com/100/100/city" alt="alt text"/>
-        <img src="http://lorempixel.com/100/100/city" alt="alt text"/>
-      </div>
-      <div class="overlay">
-        <div class="text">Drop Here</div>
-      </div>
-    </div>
-
-    <div id="droppable2" class="ui-widget-header droppable col-sm rounded border">
-      <p>Class 2</p>
-      <div class="overlaycontainer">
-        <img src="http://lorempixel.com/100/100/city" alt="alt text"/>
-        <img src="http://lorempixel.com/100/100/city" alt="alt text"/>
-      </div>
-      <div class="overlay">
-        <div class="text">Drop Here</div>
-      </div>
-    </div>
-
-    <div id="droppable3" class="ui-widget-header droppable col-sm rounded border">
-      <p>Class 3</p>
-      <div class="overlaycontainer">
-        <img src="{{url_for('static', filename='/img/0/train/0-0.png')}}" alt="alt text"/>
-        <img src="http://lorempixel.com/100/100/city" alt="alt text"/>
-      </div>
-      <div class="overlay">
-        <div class="text">Drop Here</div>
-      </div>
-    </div>
-
-    <div id="droppable4" class="ui-widget-header droppable col-sm rounded border">
-      <p>Class 4</p>
-      <div class="overlaycontainer">
-        <img src="http://lorempixel.com/100/100/city" alt="alt text"/>
-        <img src="http://lorempixel.com/100/100/city" alt="alt text"/>
-      </div>
-      <div class="overlay">
-        <div class="text">Drop Here</div>
-      </div>
-    </div>
-  -->
   </div>
 
 
 
 </div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
--->
-
 
   <script>
   function add_sample_box(url){
