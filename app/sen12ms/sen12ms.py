@@ -466,8 +466,9 @@ def sample_testtasks(data_root="/ssd/sen12ms128", ways=4, shots=2, num_batches =
         X,y = transform(s1,s2,y)
 
         rgb = np.swapaxes(X[rgb_idx,:,:].numpy(),0,2)
-        rgb = exposure.rescale_intensity(rgb)
-        rgb = exposure.adjust_gamma(rgb, gamma=0.8, gain=1)
+        #rgb = exposure.rescale_intensity(rgb)
+        rgb = exposure.equalize_hist(rgb)
+        #rgb = exposure.adjust_gamma(rgb, gamma=0.8, gain=1)
         X = np.swapaxes(rgb,0,2)
         return torch.from_numpy(X),y
 

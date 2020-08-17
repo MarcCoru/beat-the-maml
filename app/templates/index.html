@@ -33,7 +33,7 @@
 
     var timestart = Date.now();
     var timeend;
-    var progressbarmax = 20
+    var progressbarmax = 50
 
     $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 
@@ -209,14 +209,33 @@
         .find( "p" )
           .html( "Dropped!" );
 
+
+      console.log(event)
+      if (event.type == "click"){
+        console.log()
+        // if user clicked on the overlay
+        var target = event.target.parentElement
+
+        // if user clicked on the <p> tag
+        if (event.target.classList[0] == "text"){
+            var target = event.target.parentElement.parentElement
+        }
+        console.log(target)
+      }
+      else if (event.type == "drop") {
+        var target = event.target
+      }
+
       data = {
         true_class: testclass,
-        selected_class: event.target.classid,
+        selected_class: target.classid,
         uuid: uuid,
         taskid: taskid,
         counter: counter,
         duration: (Date.now() - timestart) * 0.001
       }
+
+
 
       timestart = Date.now()
 

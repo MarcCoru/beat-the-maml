@@ -13,6 +13,7 @@ import shutil
 from datetime import datetime
 import json
 from waitress import serve
+from tqdm import tqdm
 #from flask_cors import CORS, cross_origin
 
 
