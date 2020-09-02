@@ -27,6 +27,7 @@
 
 
     <script>
+    var userid = '{{ userid }}';
     var shots = 2
     var ways = 4
     var num_tasks = 1000
@@ -229,7 +230,8 @@
       data = {
         true_class: testclass,
         selected_class: target.classid,
-        uuid: uuid,
+        uuid: uuid, // automatically generated uuid
+        userid: userid, // a manually given userid, usually just ""
         taskid: taskid,
         counter: counter,
         duration: (Date.now() - timestart) * 0.001
@@ -242,13 +244,23 @@
       console.log(data)
       counter += 1
 
+      $.post( "/dropevent", {
+        data: JSON.stringify(data)
+      })
+
+
       $("#dynamic")
       .css("width", ((counter % progressbarmax) * 1/progressbarmax) * 100 + "%")
       .attr("aria-valuenow", counter);
 
-      $.post( "/dropevent", {
-        data: JSON.stringify(data)
-      })
+      if (counter == progressbarmax){
+          alert(
+              "You completed "+progressbarmax+" samples. Thank you very much! Feel free to close this window now or " +
+              "to continue if you feel generous"
+          )
+      }
+
+
 
       /*
       if ( event.target.classid == testclass ){

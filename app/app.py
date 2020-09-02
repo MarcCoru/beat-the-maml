@@ -25,7 +25,10 @@ JSON_RECORDS_FILE = "app/static/records.json"
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    userid = request.args.get('userid')
+    if userid is None:
+        userid = ""
+    return render_template("index.html", userid=userid)
 
 @app.route('/generateimages')
 def generateimages():
