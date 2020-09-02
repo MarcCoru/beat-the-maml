@@ -30,6 +30,7 @@ def index():
         userid = ""
     return render_template("index.html", userid=userid)
 
+"""
 @app.route('/generateimages')
 def generateimages():
 
@@ -51,14 +52,6 @@ def generateimages():
         arr = (image * 255).transpose(0,2).numpy().astype(np.uint8)
         im = Image.fromarray(arr)
         im.save(path)
-
-        """
-        fig, ax = plt.subplots()
-        ax.imshow(image)
-        ax.set_axis_off()
-        fig.savefig(path, bbox_inches="tight", pad_inches=0)
-        plt.close('all')
-        """
 
     for idx in range(num_batches):
         row = stats.iloc[idx]
@@ -88,6 +81,7 @@ def generateimages():
 
 
     return "generating images"
+"""
 
 def append_record(record):
     if os.path.exists(JSON_RECORDS_FILE):
