@@ -2,7 +2,10 @@
   background-color: #008CBA80;
   z-index:50; margin: 20px}
 
-.droppable { padding: 5px; margin: 5px}
+.droppable {
+    padding: 5px;
+    margin: 5px;
+    transition: ease-in-out 300ms;}
 
 img {
   width:128px;

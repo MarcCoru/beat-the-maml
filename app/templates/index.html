@@ -36,6 +36,11 @@
     var timeend;
     var progressbarmax = 50
 
+    var wrongcolor="#bf7178"
+    var correctcolor="#4b9c5e"
+
+    var delay_until_next_sample = 1500
+
     $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 
     function uuidv4() {
@@ -259,9 +264,17 @@
               "to continue if you feel generous"
           )
       }
+        //$(".droppable").css("background-color",wrongcolor);
+        $("#droppable"+testclass).css("background-color",correctcolor);
+        $("#droppable"+target.classid).css("border-width","thick");
+        $("#droppable"+target.classid).css("border-color","#000000");
+        $(".overlay").remove()
 
-
-
+        setTimeout(function(){
+          clear()
+          initboxes()
+          add_dropping_functionality()
+        }, delay_until_next_sample);
       /*
       if ( event.target.classid == testclass ){
           alert("correct")
@@ -271,9 +284,6 @@
       }
       */
 
-      clear()
-      initboxes()
-      add_dropping_functionality()
 
     };
 
