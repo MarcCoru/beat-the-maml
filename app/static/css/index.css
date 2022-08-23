@@ -38,8 +38,17 @@ img {
   text-align: center;
 }
 
+.jumbotron {
+    background-color: white;
+}
+
 .progress {
 
+}
+
+.h5, h5 {
+    font-size: 1.5rem;
+    margin-top: 20px;
 }
 
 .box{

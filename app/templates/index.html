@@ -21,6 +21,8 @@
 <script src="{{ url_for('static', filename='js/jquery-ui.js') }}"></script>
 <script src="{{ url_for('static', filename='js/popper.min.js') }}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.29/dist/sweetalert2.min.css"></link>
 
 <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}"></link>
@@ -34,10 +36,17 @@
 
     var timestart = Date.now();
     var timeend;
-    var progressbarmax = 50
+    var maxtries = 10;
+    var progressbarmax = 100;
+    var expected_maml_accuracy = 0.6
 
     var wrongcolor="#bf7178"
     var correctcolor="#4b9c5e"
+
+    var correct = []
+    var correctmaml = []
+    var accuracy = 0
+    var accuracymaml = 0
 
     var delay_until_next_sample = 1500
 
@@ -72,14 +81,30 @@
 
     <div class="container">
       <div class="jumbotron">
-        <h1>Sen12MS Human Few-Shot Classifier</h1>
-        <p>Below are RGB images from different regions on the Earth. </p>
-        <h6>Instructions</h6>
-          <p>Drag and drop the sample image in the top row to the most similar category in the bottom row. Alternatively, you can click the corresponding bottom row category</p>
-        <div class="progress">
-          <div id="dynamic" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-          </div>
-        </div>
+        <h1>Beat the Machine!</h1>
+        <p>Assign images from different areas to the correct category. </p>
+        <h4>Instructions</h4>
+          <p>Drag and drop the top image to the most similar category in the bottom row!</p>
+
+          <div class="alert alert-dark" role="alert">
+              <h4>Accuracy</h4>
+
+      <div class="progress" style="height: 5px;">
+          <div id="prog" class="progress-bar active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%; background-color:white !important;"></div>
+      </div>
+
+          <h5>You 🫵</h5>
+        <div class="progress" style="height: 50px;">
+          <div id="dynamic" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 1%; font-size: xx-large;"></div>
+      </div>
+
+          <h5>Machine 🤖</h5>
+        <div class="progress" style="height: 50px;">
+          <div id="dynamic2" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 1%; font-size: xx-large;"></div>
+      </div>
+
+ </div>
+
       </div>
 
 
@@ -133,6 +158,27 @@
     removeAllChildNodes(queryrow)
   }
 
+  function reset(){
+    correct = []
+    correctmaml = []
+    accuracy = 0
+    accuracymaml = 0
+      counter = 0
+
+            $("#dynamic")
+      .css("width", (accuracy) * 100 + "%")
+      .attr("aria-valuenow", accuracy);
+      $("#dynamic").html(String(Math.round(accuracy*100)) + "%");
+
+      $("#prog")
+      .css("width", ((maxtries-counter)/maxtries)*100+ "%")
+
+        $("#dynamic2")
+      .css("width", (accuracymaml) * 100 + "%")
+      .attr("aria-valuenow", accuracymaml);
+      $("#dynamic2").html(String(Math.round(accuracymaml*100)) + "%");
+  }
+
   function add_support_box(classid, urls){
     /*
     urls = [
@@ -179,6 +225,7 @@
   function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
   }
+
 
   function initboxes() {
     taskid=getRandomInt(num_tasks)
@@ -239,8 +286,35 @@
         duration: (Date.now() - timestart) * 0.001
       }
 
+      correct.push(testclass == target.classid);
+      correctmaml.push(Math.random() < expected_maml_accuracy)
 
+      if (correct.length > 0){
+          accuracy = correct.reduce((a, b) => a + b, 0) / correct.length
+        }
 
+      if (correctmaml.length > 0){
+          accuracymaml = correctmaml.reduce((a, b) => a + b, 0) / correctmaml.length
+        }
+
+      if (accuracy > accuracymaml){
+          $("#dynamic2").removeClass("bg-success")
+          $("#dynamic").addClass("bg-success")
+          $("#dynamic2").addClass("bg-danger")
+          $("#dynamic").removeClass("bg-danger")
+      }
+      else if (accuracy == accuracymaml) {
+          $("#dynamic2").removeClass("bg-success")
+          $("#dynamic2").removeClass("bg-danger")
+          $("#dynamic").removeClass("bg-success")
+          $("#dynamic").removeClass("bg-danger")
+      }
+      else{
+          $("#dynamic2").addClass("bg-success")
+          $("#dynamic").removeClass("bg-success")
+          $("#dynamic").addClass("bg-danger")
+          $("#dynamic2").removeClass("bg-danger")
+      }
 
 
       console.log(data)
@@ -252,15 +326,20 @@
 
 
       $("#dynamic")
-      .css("width", ((counter % progressbarmax) * 1/progressbarmax) * 100 + "%")
-      .attr("aria-valuenow", counter);
+      .css("width", (accuracy) * 100 + "%")
+      .attr("aria-valuenow", accuracy);
+      $("#dynamic").html(String(Math.round(accuracy*100)) + "%");
 
-      if (counter == progressbarmax){
-          alert(
-              "You completed "+progressbarmax+" samples. Thank you very much! Feel free to close this window now or " +
-              "to continue if you feel generous"
-          )
-      }
+        $("#dynamic2")
+      .css("width", (accuracymaml) * 100 + "%")
+      .attr("aria-valuenow", accuracymaml);
+      $("#dynamic2").html(String(Math.round(accuracymaml*100)) + "%");
+
+
+      $("#prog")
+      .css("width", ((maxtries-counter)/maxtries)*100+ "%")
+
+
         //$(".droppable").css("background-color",wrongcolor);
         $("#droppable"+testclass).css("background-color",correctcolor);
         $("#droppable"+target.classid).css("border-width","thick");
@@ -273,6 +352,28 @@
           add_dropping_functionality()
           timestart = Date.now()
         }, delay_until_next_sample);
+
+        if (counter >= maxtries){
+            if (accuracy > accuracymaml){
+                Swal.fire({
+                  title: 'you beat the machine!',
+                    imageUrl: "{{ url_for('static', filename='anim/success.gif') }}",
+                  showConfirmButton: false,
+                  timer: 3000
+                })
+            }
+            else {
+                Swal.fire({
+                  title: 'you lost against the machine!',
+                    imageUrl: "{{ url_for('static', filename='anim/fail.gif') }}",
+                  showConfirmButton: false,
+                  timer: 3000
+                })
+            }
+
+            reset()
+
+        }
       /*
       if ( event.target.classid == testclass ){
           alert("correct")

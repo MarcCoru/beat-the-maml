@@ -1,20 +1,13 @@
-from flask import Flask, render_template, url_for, request, redirect, jsonify
-
+from flask import Flask, render_template, request
 import io
 import random
 from flask import Response
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
-import uuid
 import os
-from sen12ms import sample_testtasks
-import matplotlib.pyplot as plt
-import shutil
 from datetime import datetime
 import json
 from waitress import serve
-from tqdm import tqdm
-#from flask_cors import CORS, cross_origin
 
 
 app = Flask(__name__)
