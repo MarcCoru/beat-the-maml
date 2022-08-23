@@ -1,0 +1,8 @@
+0 0 fall/91/Forests/p207bl
+0 1 fall/91/Forests/p207tl
+1 0 fall/91/Grassland/p311bl
+1 1 fall/91/Grassland/p304br
+2 0 fall/91/Croplands/p85tr
+2 1 fall/91/Croplands/p52tr
+3 0 fall/91/Wetlands/p272tl
+3 1 fall/91/Wetlands/p215bl

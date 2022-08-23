@@ -1,0 +1,8 @@
+0 0 fall/135/Forests/p295tl
+0 1 fall/135/Forests/p126bl
+1 0 fall/135/Croplands/p478bl
+1 1 fall/135/Croplands/p361br
+2 0 fall/135/Grassland/p755tl
+2 1 fall/135/Grassland/p784tl
+3 0 fall/135/Savanna/p361tr
+3 1 fall/135/Savanna/p481br

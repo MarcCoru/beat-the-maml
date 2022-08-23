@@ -1,0 +1,8 @@
+0 0 fall/135/Urban_Build-up/p683tl
+0 1 fall/135/Urban_Build-up/p775tr
+1 0 fall/135/Grassland/p61tl
+1 1 fall/135/Grassland/p784tl
+2 0 fall/135/Croplands/p216tl
+2 1 fall/135/Croplands/p448tr
+3 0 fall/135/Savanna/p59br
+3 1 fall/135/Savanna/p121tl

@@ -1,0 +1,8 @@
+0 0 fall/141/Water/p63br
+0 1 fall/141/Water/p414bl
+1 0 fall/141/Urban_Build-up/p509br
+1 1 fall/141/Urban_Build-up/p752bl
+2 0 fall/141/Croplands/p559bl
+2 1 fall/141/Croplands/p169tr
+3 0 fall/141/Savanna/p544br
+3 1 fall/141/Savanna/p65tr

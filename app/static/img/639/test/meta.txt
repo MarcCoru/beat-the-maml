@@ -1,0 +1,8 @@
+0 0 spring/110/Water/p581bl
+0 1 spring/110/Water/p651tl
+1 0 spring/110/Urban_Build-up/p334tl
+1 1 spring/110/Urban_Build-up/p482br
+2 0 spring/110/Savanna/p32tr
+2 1 spring/110/Savanna/p81br
+3 0 spring/110/Wetlands/p375tr
+3 1 spring/110/Wetlands/p543bl

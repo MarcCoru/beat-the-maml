@@ -1,0 +1,8 @@
+0 0 summer/135/Forests/p255tr
+0 1 summer/135/Forests/p231tl
+1 0 summer/135/Water/p37tr
+1 1 summer/135/Water/p588br
+2 0 summer/135/Grassland/p75br
+2 1 summer/135/Grassland/p45bl
+3 0 summer/135/Croplands/p521tr
+3 1 summer/135/Croplands/p78bl

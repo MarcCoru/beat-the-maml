@@ -1,0 +1,8 @@
+0 0 winter/108/Savanna/p510tr
+0 1 winter/108/Savanna/p211tr
+1 0 winter/108/Forests/p282tl
+1 1 winter/108/Forests/p457tr
+2 0 winter/108/Urban_Build-up/p623tr
+2 1 winter/108/Urban_Build-up/p583tr
+3 0 winter/108/Grassland/p637tl
+3 1 winter/108/Grassland/p117bl

@@ -1,0 +1,8 @@
+0 0 winter/130/Barren/p41tl
+0 1 winter/130/Barren/p777tr
+1 0 winter/130/Shrubland/p212bl
+1 1 winter/130/Shrubland/p39tr
+2 0 winter/130/Croplands/p619tl
+2 1 winter/130/Croplands/p88bl
+3 0 winter/130/Urban_Build-up/p302br
+3 1 winter/130/Urban_Build-up/p271bl

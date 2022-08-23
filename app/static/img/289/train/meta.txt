@@ -1,0 +1,8 @@
+0 0 spring/145/Croplands/p359br
+0 1 spring/145/Croplands/p77bl
+1 0 spring/145/Savanna/p570tl
+1 1 spring/145/Savanna/p669tl
+2 0 spring/145/Forests/p733br
+2 1 spring/145/Forests/p613tl
+3 0 spring/145/Grassland/p108bl
+3 1 spring/145/Grassland/p194tr

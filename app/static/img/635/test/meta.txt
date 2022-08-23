@@ -1,0 +1,8 @@
+0 0 summer/123/Wetlands/p50tr
+0 1 summer/123/Wetlands/p77bl
+1 0 summer/123/Water/p777br
+1 1 summer/123/Water/p753tr
+2 0 summer/123/Croplands/p132br
+2 1 summer/123/Croplands/p106bl
+3 0 summer/123/Forests/p832br
+3 1 summer/123/Forests/p321tr

@@ -1,0 +1,8 @@
+0 0 summer/123/Savanna/p329tr
+0 1 summer/123/Savanna/p303tl
+1 0 summer/123/Forests/p476br
+1 1 summer/123/Forests/p266bl
+2 0 summer/123/Wetlands/p50tl
+2 1 summer/123/Wetlands/p48tr
+3 0 summer/123/Grassland/p712bl
+3 1 summer/123/Grassland/p60br

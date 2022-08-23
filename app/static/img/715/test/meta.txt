@@ -1,0 +1,8 @@
+0 0 spring/145/Urban_Build-up/p376tr
+0 1 spring/145/Urban_Build-up/p223tr
+1 0 spring/145/Forests/p822br
+1 1 spring/145/Forests/p374tl
+2 0 spring/145/Savanna/p802tr
+2 1 spring/145/Savanna/p723tl
+3 0 spring/145/Croplands/p220tl
+3 1 spring/145/Croplands/p78bl

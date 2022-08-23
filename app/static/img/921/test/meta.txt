@@ -1,0 +1,8 @@
+0 0 summer/135/Water/p786bl
+0 1 summer/135/Water/p268tr
+1 0 summer/135/Forests/p827tl
+1 1 summer/135/Forests/p113tr
+2 0 summer/135/Grassland/p82bl
+2 1 summer/135/Grassland/p251br
+3 0 summer/135/Savanna/p779br
+3 1 summer/135/Savanna/p739tl

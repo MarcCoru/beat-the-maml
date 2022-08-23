@@ -1,0 +1,8 @@
+0 0 summer/126/Savanna/p494bl
+0 1 summer/126/Savanna/p627br
+1 0 summer/126/Croplands/p428tl
+1 1 summer/126/Croplands/p285tr
+2 0 summer/126/Forests/p730tl
+2 1 summer/126/Forests/p681bl
+3 0 summer/126/Urban_Build-up/p718br
+3 1 summer/126/Urban_Build-up/p389tl

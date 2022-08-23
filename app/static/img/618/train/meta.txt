@@ -1,0 +1,8 @@
+0 0 spring/101/Savanna/p461br
+0 1 spring/101/Savanna/p168br
+1 0 spring/101/Water/p262bl
+1 1 spring/101/Water/p589tl
+2 0 spring/101/Urban_Build-up/p794bl
+2 1 spring/101/Urban_Build-up/p106bl
+3 0 spring/101/Forests/p288bl
+3 1 spring/101/Forests/p576tr

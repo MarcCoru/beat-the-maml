@@ -1,0 +1,8 @@
+0 0 winter/108/Savanna/p225bl
+0 1 winter/108/Savanna/p204tr
+1 0 winter/108/Grassland/p547br
+1 1 winter/108/Grassland/p745bl
+2 0 winter/108/Water/p813bl
+2 1 winter/108/Water/p359br
+3 0 winter/108/Wetlands/p71br
+3 1 winter/108/Wetlands/p296tl

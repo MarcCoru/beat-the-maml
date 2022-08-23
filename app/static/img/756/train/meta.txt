@@ -1,0 +1,8 @@
+0 0 spring/134/Wetlands/p821br
+0 1 spring/134/Wetlands/p820tr
+1 0 spring/134/Water/p603tl
+1 1 spring/134/Water/p627br
+2 0 spring/134/Grassland/p434br
+2 1 spring/134/Grassland/p743tr
+3 0 spring/134/Croplands/p401tr
+3 1 spring/134/Croplands/p473br

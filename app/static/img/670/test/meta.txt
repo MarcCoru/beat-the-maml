@@ -1,0 +1,8 @@
+0 0 spring/126/Croplands/p585bl
+0 1 spring/126/Croplands/p165tl
+1 0 spring/126/Urban_Build-up/p243bl
+1 1 spring/126/Urban_Build-up/p467bl
+2 0 spring/126/Forests/p603bl
+2 1 spring/126/Forests/p46tl
+3 0 spring/126/Wetlands/p68tr
+3 1 spring/126/Wetlands/p37bl

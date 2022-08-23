@@ -1,0 +1,8 @@
+0 0 spring/110/Wetlands/p391tr
+0 1 spring/110/Wetlands/p543bl
+1 0 spring/110/Forests/p41tr
+1 1 spring/110/Forests/p368tr
+2 0 spring/110/Urban_Build-up/p355br
+2 1 spring/110/Urban_Build-up/p450br
+3 0 spring/110/Savanna/p86tl
+3 1 spring/110/Savanna/p326br

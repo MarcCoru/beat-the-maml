@@ -1,0 +1,8 @@
+0 0 fall/91/Grassland/p374tl
+0 1 fall/91/Grassland/p255tl
+1 0 fall/91/Wetlands/p270br
+1 1 fall/91/Wetlands/p820tr
+2 0 fall/91/Savanna/p173tl
+2 1 fall/91/Savanna/p460tl
+3 0 fall/91/Urban_Build-up/p628tl
+3 1 fall/91/Urban_Build-up/p731br

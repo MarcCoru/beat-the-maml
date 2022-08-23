@@ -1,0 +1,8 @@
+0 0 summer/135/Water/p275tl
+0 1 summer/135/Water/p560tl
+1 0 summer/135/Forests/p56br
+1 1 summer/135/Forests/p255tr
+2 0 summer/135/Urban_Build-up/p680br
+2 1 summer/135/Urban_Build-up/p564tl
+3 0 summer/135/Grassland/p424br
+3 1 summer/135/Grassland/p253bl

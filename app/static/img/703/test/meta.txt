@@ -1,0 +1,8 @@
+0 0 fall/122/Forests/p279tr
+0 1 fall/122/Forests/p240tl
+1 0 fall/122/Savanna/p71tl
+1 1 fall/122/Savanna/p219tl
+2 0 fall/122/Wetlands/p141br
+2 1 fall/122/Wetlands/p595br
+3 0 fall/122/Urban_Build-up/p494tl
+3 1 fall/122/Urban_Build-up/p465tl

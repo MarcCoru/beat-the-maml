@@ -1,0 +1,8 @@
+0 0 spring/145/Grassland/p740tr
+0 1 spring/145/Grassland/p196tl
+1 0 spring/145/Croplands/p523tl
+1 1 spring/145/Croplands/p211tr
+2 0 spring/145/Forests/p740br
+2 1 spring/145/Forests/p613tr
+3 0 spring/145/Urban_Build-up/p64tl
+3 1 spring/145/Urban_Build-up/p53br

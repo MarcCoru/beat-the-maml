@@ -1,0 +1,8 @@
+0 0 summer/126/Grassland/p477tl
+0 1 summer/126/Grassland/p40bl
+1 0 summer/126/Forests/p761tr
+1 1 summer/126/Forests/p827br
+2 0 summer/126/Croplands/p345bl
+2 1 summer/126/Croplands/p490bl
+3 0 summer/126/Urban_Build-up/p366bl
+3 1 summer/126/Urban_Build-up/p270bl

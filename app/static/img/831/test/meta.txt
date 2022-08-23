@@ -1,0 +1,8 @@
+0 0 winter/130/Croplands/p758bl
+0 1 winter/130/Croplands/p33tl
+1 0 winter/130/Grassland/p144tl
+1 1 winter/130/Grassland/p419br
+2 0 winter/130/Urban_Build-up/p399bl
+2 1 winter/130/Urban_Build-up/p282br
+3 0 winter/130/Barren/p737tl
+3 1 winter/130/Barren/p751bl

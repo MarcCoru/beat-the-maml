@@ -1,0 +1,8 @@
+0 0 summer/123/Water/p611br
+0 1 summer/123/Water/p342br
+1 0 summer/123/Urban_Build-up/p392br
+1 1 summer/123/Urban_Build-up/p101br
+2 0 summer/123/Forests/p263tl
+2 1 summer/123/Forests/p411br
+3 0 summer/123/Grassland/p120tl
+3 1 summer/123/Grassland/p75br

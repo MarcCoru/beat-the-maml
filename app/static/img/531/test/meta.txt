@@ -1,0 +1,8 @@
+0 0 summer/101/Water/p44br
+0 1 summer/101/Water/p396tr
+1 0 summer/101/Croplands/p637tr
+1 1 summer/101/Croplands/p744br
+2 0 summer/101/Urban_Build-up/p621bl
+2 1 summer/101/Urban_Build-up/p483br
+3 0 summer/101/Savanna/p798tl
+3 1 summer/101/Savanna/p516tl

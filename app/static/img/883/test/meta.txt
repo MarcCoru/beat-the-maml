@@ -1,0 +1,8 @@
+0 0 fall/141/Forests/p770tl
+0 1 fall/141/Forests/p736br
+1 0 fall/141/Water/p352br
+1 1 fall/141/Water/p326tl
+2 0 fall/141/Croplands/p466tr
+2 1 fall/141/Croplands/p380tr
+3 0 fall/141/Urban_Build-up/p38tl
+3 1 fall/141/Urban_Build-up/p752bl

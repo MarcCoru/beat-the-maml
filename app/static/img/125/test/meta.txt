@@ -1,0 +1,8 @@
+0 0 spring/123/Forests/p192tr
+0 1 spring/123/Forests/p190br
+1 0 spring/123/Wetlands/p668tl
+1 1 spring/123/Wetlands/p438bl
+2 0 spring/123/Savanna/p316br
+2 1 spring/123/Savanna/p630br
+3 0 spring/123/Croplands/p710tr
+3 1 spring/123/Croplands/p630bl

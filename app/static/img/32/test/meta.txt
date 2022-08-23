@@ -1,0 +1,8 @@
+0 0 fall/122/Forests/p44tr
+0 1 fall/122/Forests/p153tr
+1 0 fall/122/Wetlands/p141br
+1 1 fall/122/Wetlands/p541tr
+2 0 fall/122/Water/p836tr
+2 1 fall/122/Water/p662tr
+3 0 fall/122/Savanna/p67tr
+3 1 fall/122/Savanna/p78tr

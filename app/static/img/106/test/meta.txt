@@ -1,0 +1,8 @@
+0 0 winter/103/Urban_Build-up/p745tr
+0 1 winter/103/Urban_Build-up/p268tl
+1 0 winter/103/Croplands/p552tr
+1 1 winter/103/Croplands/p254bl
+2 0 winter/103/Forests/p298tl
+2 1 winter/103/Forests/p850bl
+3 0 winter/103/Grassland/p204br
+3 1 winter/103/Grassland/p569bl

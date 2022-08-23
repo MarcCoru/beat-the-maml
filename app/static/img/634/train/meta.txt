@@ -1,0 +1,8 @@
+0 0 winter/123/Grassland/p221bl
+0 1 winter/123/Grassland/p166br
+1 0 winter/123/Forests/p346br
+1 1 winter/123/Forests/p432br
+2 0 winter/123/Savanna/p405br
+2 1 winter/123/Savanna/p269tl
+3 0 winter/123/Croplands/p583br
+3 1 winter/123/Croplands/p379tr

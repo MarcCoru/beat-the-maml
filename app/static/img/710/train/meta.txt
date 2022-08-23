@@ -1,0 +1,8 @@
+0 0 spring/123/Wetlands/p553tl
+0 1 spring/123/Wetlands/p291br
+1 0 spring/123/Croplands/p794bl
+1 1 spring/123/Croplands/p772tl
+2 0 spring/123/Grassland/p220br
+2 1 spring/123/Grassland/p488tl
+3 0 spring/123/Urban_Build-up/p724tr
+3 1 spring/123/Urban_Build-up/p763tr

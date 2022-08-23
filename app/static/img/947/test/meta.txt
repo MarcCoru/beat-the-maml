@@ -1,0 +1,8 @@
+0 0 fall/141/Croplands/p108bl
+0 1 fall/141/Croplands/p148tl
+1 0 fall/141/Grassland/p845tl
+1 1 fall/141/Grassland/p362tl
+2 0 fall/141/Forests/p583tr
+2 1 fall/141/Forests/p793br
+3 0 fall/141/Water/p414tl
+3 1 fall/141/Water/p568br

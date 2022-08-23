@@ -1,0 +1,8 @@
+0 0 fall/122/Water/p314br
+0 1 fall/122/Water/p631tr
+1 0 fall/122/Forests/p78tl
+1 1 fall/122/Forests/p100tl
+2 0 fall/122/Wetlands/p113tr
+2 1 fall/122/Wetlands/p141br
+3 0 fall/122/Savanna/p195br
+3 1 fall/122/Savanna/p62bl

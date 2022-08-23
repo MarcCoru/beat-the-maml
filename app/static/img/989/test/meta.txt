@@ -1,0 +1,8 @@
+0 0 spring/110/Savanna/p108bl
+0 1 spring/110/Savanna/p148tl
+1 0 spring/110/Wetlands/p436bl
+1 1 spring/110/Wetlands/p243bl
+2 0 spring/110/Forests/p254tr
+2 1 spring/110/Forests/p46br
+3 0 spring/110/Water/p813tl
+3 1 spring/110/Water/p767tl

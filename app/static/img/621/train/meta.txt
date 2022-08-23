@@ -1,0 +1,8 @@
+0 0 fall/126/Croplands/p513tl
+0 1 fall/126/Croplands/p245br
+1 0 fall/126/Urban_Build-up/p728br
+1 1 fall/126/Urban_Build-up/p401bl
+2 0 fall/126/Grassland/p590tl
+2 1 fall/126/Grassland/p48tr
+3 0 fall/126/Forests/p740tl
+3 1 fall/126/Forests/p340br

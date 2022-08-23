@@ -1,0 +1,8 @@
+0 0 summer/101/Savanna/p744tl
+0 1 summer/101/Savanna/p686tl
+1 0 summer/101/Water/p132br
+1 1 summer/101/Water/p106bl
+2 0 summer/101/Croplands/p825bl
+2 1 summer/101/Croplands/p802tl
+3 0 summer/101/Grassland/p830br
+3 1 summer/101/Grassland/p669bl

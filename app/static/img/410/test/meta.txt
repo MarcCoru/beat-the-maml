@@ -1,0 +1,8 @@
+0 0 winter/103/Grassland/p297bl
+0 1 winter/103/Grassland/p598br
+1 0 winter/103/Savanna/p649br
+1 1 winter/103/Savanna/p702tl
+2 0 winter/103/Croplands/p843tr
+2 1 winter/103/Croplands/p584tr
+3 0 winter/103/Urban_Build-up/p782tr
+3 1 winter/103/Urban_Build-up/p145bl
