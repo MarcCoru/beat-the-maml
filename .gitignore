@@ -3,3 +3,4 @@ app/static/records.json
 *.zip
 .idea
 *.ipynb_checkpoints
+app/templates/.index.html.swp
