@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "helloflask"
+name = "Sen12MS-Human-Fewshot-Classifier"
 version = "0.1.0"
-description = "Hello World with Flask and Docker"
-authors = ["Samuel Bancal <Samuel.Bancal@epfl.ch>"]
+description = "An interactive game to solve few-shot land cover tasks"
+authors = ["Marc Russwurm <marc.russwurm@epfl.ch>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
