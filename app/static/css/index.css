@@ -1,16 +1,22 @@
 #draggable { padding: 20px;
-  background-color: #008CBA80;
+  background-color: rgba(255, 255, 255, 0.5);
   z-index:50; margin: 20px}
 
 .droppable {
-    padding: 5px;
-    margin: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 2px;
+    margin: 2px;
     transition: ease-in-out 300ms;}
 
 img {
-  width:128px;
+  width:120px;
   margin: 1px;
 }
+
+.instruction {
+  width:100%;
+}
+
 
 .overlay {
   position: absolute;
@@ -59,6 +65,6 @@ img {
 
 .overlay:hover  {
    /*opacity: .5;*/
-   background-color: #008CBA80;
+   background-color: rgba(24, 108, 57, 0.5);
    opacity: 1;
  }

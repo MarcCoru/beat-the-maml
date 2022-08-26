@@ -1,0 +1,27 @@
+services:
+  reverse-proxy:
+    image: traefik:v2.5
+    command:
+      - "--providers.docker"
+      - "--providers.file.directory=/configuration/"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
+      - "--entrypoints.web.http.redirections.entryPoint.permanent=true"
+      - "--entrypoints.websecure.address=:443"
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik.yaml:/configuration/traefik.yml
+      - ${SSL_CERT_KEY:-./cert/certificate.key}:/cert/certificate.key
+      - ${SSL_CERT_CRT:-./cert/certificate.crt}:/cert/certificate.crt
+  app:
+    build: .
+    restart: unless-stopped
+    labels:
+      - "traefik.http.routers.flaskApp.tls=true"
+      - "traefik.http.routers.flaskApp.rule=PathPrefix(`/`)"
+      - "traefik.http.services.flaskApp.loadbalancer.server.port=5000"

@@ -1,18 +1,11 @@
 from flask import Flask, render_template, request
-import io
-import random
-from flask import Response
-from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-from matplotlib.figure import Figure
 import os
 from datetime import datetime
 import json
-from waitress import serve
 
 
 app = Flask(__name__)
 app.config['CORS_HEADERS'] = 'Content-Type'
-#cors = CORS(app, resources={r"/predict_petal_length": {"origins": "*"}})
 
 JSON_RECORDS_FILE = "app/static/records.json"
 
@@ -99,6 +92,7 @@ def post_javascript_data():
 
     return jsdata
 
+"""
 @app.route('/plot')
 def plot_png():
     fig = create_figure()
@@ -113,7 +107,8 @@ def create_figure():
     ys = [random.randint(1, 50) for x in xs]
     axis.plot(xs, ys)
     return fig
-
+"""
 if __name__ == "__main__":
 #   app.run(host='0.0.0.0', ssl_context='adhoc') ##Replaced with below code to run it using waitress
+   from waitress import serve
    serve(app, host='0.0.0.0', port=80)
