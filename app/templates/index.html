@@ -87,11 +87,19 @@
 
     <div class="container">
 
-
       <div class="jumbotron">
 
 
-        <h1>Beat the MAML-Model!</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1>Beat the MAML-Model!</h1>
+                </div>
+              <div class="col col-md-auto">
+                <img class="logo" src="{{ url_for('static', filename='logo/epfl-eceo.png') }}">
+            </div>
+          </div>
+        </div>
 
            <div id="accordion">
               <div class="card">
@@ -106,9 +114,22 @@
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                   <div class="card-body">
 
+                    <p>
                   In our <a href="https://github.com/MarcCoru/sen12ms-human-few-shot-classifier/blob/master/IGARSS2022_HumanFewShotClassifiers.pdf">paper "Humans are poor few-shot classifiers for Sentinel-2 land cover"</a>, we compared the accuracy of human participants
                             with a deep learning model trained with model-agnostic meta-learning (MAML) on land cover classification tasks of different geographic regions.
-                            This game is based on the survey interface that we posed to 21 participants and shows individual classification tasks similar to the ones the MAML model would have to solve satellite data.
+                        This game is based on the survey interface that we posed to 21 participants and shows individual classification tasks similar to the ones the MAML model would have to solve satellite data.
+
+                  </p>
+
+                      <p>
+                          You can play along and see how you would have compared to the average partipant, the best participant of the study, or the MAML model.
+                      </p>
+               <div class="alert alert-primary" role="alert">
+               Note that we <b>record your inputs</b> in this game for a potential follow-up study.
+                      </div>
+
+                      For more info, check the <a href="https://www.epfl.ch/labs/eceo/eceo/research/">EPFL-ECEO research page </a>
+
                   </div>
                 </div>
 
@@ -190,6 +211,27 @@
       </div>
         </div>
 
+        <!-- Footer -->
+<footer class="page-footer font-small blue">
+
+        <div id="copyright"></div>
+
+
+    <script>
+      const paragraph = `
+        <div class="footer-copyright text-center py-3">© ${new Date().getFullYear()} Copyright:
+            <a href="https://marcrusswurm.com/">Marc Russwurm</a>
+          </div>
+    `;
+
+      document.getElementById('copyright').innerHTML = paragraph;
+    </script>
+  <!-- Copyright -->
+
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
 
 
   <script>
@@ -420,7 +462,7 @@
         }, delay_until_next_sample);
 
         if (counter >= maxtries){
-            if (accuracy > accuracymaml){
+            if (accuracy >= accuracymaml){
                 Swal.fire({
                   title: "You won 🎉! " + String(Math.round(accuracy*100)) + "% against " + String(Math.round(accuracymaml*100)) + "%",
                     imageUrl: "{{ url_for('static', filename='anim/success.gif') }}",

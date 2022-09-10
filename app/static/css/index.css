@@ -13,6 +13,10 @@ img {
   margin: 1px;
 }
 
+.logo {
+  width:200px;
+}
+
 .instruction {
   width:100%;
 }
