@@ -2,6 +2,10 @@
 
 This app showcases a gamified survey interface that we used in our paper ["Humans are poor few-shot classifiers for Sentinel-2 land cover"](IGARSS2022_HumanFewShotClassifiers.pdf), presented at the [IGARSS 2022](https://www.igarss2022.org/view_paper.php?PaperNum=2406) conference.
 
+**Play with the app at [beat-the-maml.westeurope.cloudapp.azure.com](http://beat-the-maml.westeurope.cloudapp.azure.com/)**
+
+---
+
 ![doc/game_screenshot.png](doc/header_screenshot.png)
 
 ![app/static/anim/instructions.gif](app/static/anim/instructions.gif)
